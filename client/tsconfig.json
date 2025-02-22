@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",                // Поддержка JSX синтаксиса
+    "allowJs": true,                   // Разрешаем использование .js файлов
+    "noImplicitAny": false,            // Отключаем ошибку на неявный тип 'any'
+    "strict": true,                    // Включаем строгий режим
+    "esModuleInterop": true,           // Поддержка CommonJS
+    "skipLibCheck": true,              // Пропускаем проверку типов в библиотеках
+    "resolveJsonModule": true,         // Разрешаем импорт JSON файлов
+    "moduleResolution": "node",        // Разрешаем модули как в Node.js
+    "module": "esnext",                // Указываем модули ESNext
+    "target": "es6",                   // Компиляция в ES6
+    "outDir": "./dist",                // Папка для скомпилированных файлов
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src/**/*"                         // Включаем все файлы из папки src
+  ],
+  "exclude": [
+    "node_modules",                    // Исключаем папку node_modules
+    "src/**/*.js"                      // Исключаем все .js файлы в папке src
+  ]
+}

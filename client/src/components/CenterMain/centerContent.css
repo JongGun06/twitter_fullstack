@@ -1,0 +1,367 @@
+.center-content {
+    flex-grow: 1;
+    width: 30rem;
+    padding: 20px;
+  }
+  
+  .center-content h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .post {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid #222;
+  }
+
+  .for_you_block {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    border-bottom: 0.5px solid gray;
+    width: 100%;
+  }
+  
+  .post h3 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .post span {
+    font-size: 12px;
+    color: gray;
+  }
+
+
+  /* center profile */
+
+
+
+.profile-container {
+    color: #fff;
+  }
+  
+  
+  .profile-banner {
+    width: 100%;
+    height: 120px;
+    background: #333;
+  }
+  
+  .profile-avatar-wrapper {
+    margin-top: -48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-avatar-wrapper button {
+    padding: 11px;
+    width: 90px;
+    border-radius: 15px;
+    border: none;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  
+  .profile-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 4px solid #16181c;
+  }
+  
+  .profile-info {
+    padding: 16px;
+  }
+  
+  .profile-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .profile-username {
+    font-size: 14px;
+    color: #8899a6;
+  }
+  
+  .profile-meta {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #8899a6;
+  }
+  
+  .profile-followers {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #8899a6;
+  }
+  
+  .profile-tabs {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    border-top: 1px solid #333;
+  }
+  
+  /* Center search */
+
+  .search img {
+    width: 1rem;
+  }
+  .search {
+    position: relative;
+  }
+  
+  .search input {
+    background: black;
+    border: 1px solid;
+    width: 10rem;
+    color: white;
+    padding: 12px 20px 12px 30px;
+    border-radius: 10px;
+  }
+  
+  .search_block {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search_block2 {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      border-bottom: 1px solid white;
+      padding: 1rem;
+  }
+  .search_block3 a{
+      display: flex;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s;
+      align-items: center;
+      gap: 15px;
+  }
+  
+  .left-sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #333;
+  }
+  
+  .left-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .left-sidebar a {
+    display: flex;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .left-sidebar a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .left-sidebar button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #1d9bf0;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .left-sidebar button:hover {
+    background-color: #1a8cd8;
+  }
+  .left-sidebar nav a img {
+    width: 1.75rem;
+  }
+  .left-sidebar nav a span {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  
+
+  .right-sidebar {
+    width: 300px;
+    padding: 20px;
+    border-left: 1px solid #333;
+    height: 100vh;
+  }
+  
+  .trend,
+  .user {
+    background: #111;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #222;
+  }
+  
+  .trend p,
+  .user p {
+    margin: 5px 0;
+  }
+  
+  .user button {
+    margin-top: 5px;
+    padding: 6px 10px;
+    background-color: #1d9bf0;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .user button:hover {
+    background-color: #1a8cd8;
+  }
+
+/* dp */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 16px;
+  border: 0.5px solid gray;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-container {
+  margin-bottom: 12px;
+}
+
+.textarea {
+  width: 100%;
+  border: none;
+  resize: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  padding: 5px;
+  outline: none;
+  background: none;
+  color: white;
+}
+
+.controls-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 0.5px solid gray;
+  padding-top: 12px;
+}
+
+.upload-button {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.upload-button:hover {
+  background-color: #f5f8fa;
+}
+
+.upload-icon {
+  width: 24px;
+  height: 24px;
+  color: #1da1f2;
+}
+
+.publish-button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.publish-button:hover {
+  background-color: #1991db;
+}
+
+/* post_interaction */
+
+.interaction div img {
+  width: 1.25rem;
+  border-radius: 50%;
+  padding: 7px;
+}
+
+.interaction {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.interaction div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Применяем стили к img и span, когда наводят на div */
+.interaction .commentpost:hover img {
+  background: rgba(44, 123, 197, 0.419);
+}
+
+.interaction .commentpost:hover span {
+  color: rgb(44, 123, 197);
+}
+
+
+
+.interaction .likepost:hover img {
+  background: rgba(181, 40, 103, 0.419);
+}
+
+.interaction .likepost:hover span {
+  color: rgb(181, 40, 103);
+}
+
+
+
+.interaction .repostpost:hover img {
+  background: rgba(55, 213, 137, 0.419);
+}
+
+.interaction .repostpost:hover span {
+  color: rgb(55, 213, 137);
+}
+
+.interaction .bookmarkpost:hover img {
+  background: rgba(44, 123, 197, 0.419);
+}
+
+
+/* message */
+.users_message {
+  margin-top: 2rem;
+}

@@ -1,0 +1,32 @@
+body {
+    background: black;
+}
+
+.top img{
+    width: 1.75rem;
+}
+
+.top span {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 20px;
+    margin-right: 16px;
+}
+
+.top a button{
+    display: flex;
+    align-items: center;
+    background: black;
+    border: none;
+    color: white;
+}
+.top a button:hover{
+    background: rgb(62, 65, 68);
+}
+
+.top a {
+    margin: 0px 10px;
+
+    text-decoration: none;
+    color: black;
+}
