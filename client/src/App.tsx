@@ -8,6 +8,7 @@ import Message from "./components/Message/Message";
 import { UserProvider } from "./firebase/UserContext";
 import GoogleLogin from "./firebase/GoogleLogin";
 import ProfileUserOther from "./components/ProfileUserOther/ProfileUserOther";
+import Bookmark from "./components/Bookmarks/bookmark";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/" element={<Main />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/bookmark" element={<Bookmark />} />
             <Route path="/message/:googleId" element={<Message />} />
             <Route path="/profile/:email" element={<ProfileUserOther />} />
           </Routes>

@@ -1,6 +1,55 @@
-const { User, Post, Message, Notice } = require('../models/model.x.js');
+const { User, Post, Message, Notice, Chat } = require('../models/model.x.js');
 const cloudinary = require('cloudinary').v2;
 
+async function createChat(req, res) {
+  try {
+    const {  text, author, createDate, idd } = req.body;
+    const imagePath = req.file ? req.file.path : null;
+
+    if (!author || !text) {
+      return res.status(400).json({ error: "Author and text are required" });
+    }
+
+    const newPost = await Chat.create({
+      idd: idd,
+      text: text,
+      author: author,
+      createDate: createDate,
+      img: imagePath,
+    });
+
+    res.status(201).json(newPost);
+  } catch (error) {
+    console.error('Error details:', error);  // Выводим всю ошибку для отладки
+    res.status(500).json({ error: error.message || 'Something went wrong!' });
+  }
+}
+
+
+
+
+async function getChat(req, res) {
+  try {
+    const chat = await Chat.find({});
+    console.log("Users:", chat);
+    res.status(200).json(chat);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+async function getChatt(req, res) {
+  try {
+    const chats = await Chat.find({ idd: req.params.idd });
+    if (!chats.length) {
+      return res.status(404).json({ error: "No chats found" });
+    }
+    res.json(chats);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 async function createUser(req, res) {
   try {
@@ -123,6 +172,20 @@ async function getPost(req, res) {
   }
 }
 
+async function updatePost(req, res) {
+  try {
+    const { id } = req.params;
+    const updates = req.body;
+    if (req.file) updates.images = req.file.path;  // Обновление изображения
+
+    const updatedPost = await Post.findByIdAndUpdate(id, updates, { new: true });
+    if (!updatedPost) return res.status(404).json({ error: "Post not found" });
+    res.status(200).json(updatedPost);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 
 async function deletePost(req, res) {
   try {
@@ -136,16 +199,33 @@ async function deletePost(req, res) {
 }
 
 
-async function updatePost(req, res) {
+
+
+
+async function updateMessage(req, res) {
   try {
     const { id } = req.params;
-    const updates = req.body;
-    if (req.file) updates.images = req.file.path;  // Обновление изображения
+    const updates = req.body; // Получаем все обновления
+    let imageUrl = null;
 
-    const updatedPost = await Post.findByIdAndUpdate(id, updates, { new: true });
-    if (!updatedPost) return res.status(404).json({ error: "Post not found" });
-    res.status(200).json(updatedPost);
+    // Проверяем, был ли загружен файл (изображение)
+    if (req.file) {
+      // Загружаем изображение в Cloudinary
+      const uploadedImage = await cloudinary.uploader.upload(req.file.path);
+      imageUrl = uploadedImage.secure_url; // получаем URL изображения
+    }
+    if (imageUrl) {
+      updates.img = imageUrl;
+    }
+    const updatedMessage = await Message.findByIdAndUpdate(id, updates, { new: true });
+
+    if (!updatedMessage) {
+      return res.status(404).json({ error: "Message not found" });
+    }
+
+    res.status(200).json(updatedMessage);
   } catch (error) {
+    // Обработка ошибок
     res.status(500).json({ error: error.message });
   }
 }
@@ -178,13 +258,24 @@ async function getMessages(req, res) {
 }
 async function getMessage(req, res) {
   try {
-    let {id} = req.body
-    const messages = await Message.findOne(id);
-    res.status(200).json(messages);
+    let { id } = req.params; // Берём id из params, а не body!
+
+    if (!id) {
+      return res.status(400).json({ error: "Message ID is required" });
+    }
+
+    const message = await Message.findOne({ id: id }); 
+    if (!message) {
+      return res.status(404).json({ error: "Message not found" });
+    }
+
+    res.status(200).json(message);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
+
+
 
 
 async function deleteMessage(req, res) {
@@ -203,16 +294,31 @@ async function deleteMessage(req, res) {
 
 async function updateMessage(req, res) {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const updates = req.body;
+    let imageUrl = null;
+
+    // Проверяем, был ли загружен файл (изображение)
+    if (req.file) {
+      // Загружаем изображение в Cloudinary
+      const uploadedImage = await cloudinary.uploader.upload(req.file.path);
+      imageUrl = uploadedImage.secure_url; // получаем URL изображения
+    }
+
+    // Если изображение загружено, добавляем его в сообщение
+    if (imageUrl) {
+      updates.img = imageUrl;
+    }
 
     const updatedMessage = await Message.findByIdAndUpdate(id, updates, { new: true });
     if (!updatedMessage) return res.status(404).json({ error: "Message not found" });
+    
     res.status(200).json(updatedMessage);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
+
 
 
 async function createNotice(req, res) {
@@ -294,5 +400,11 @@ module.exports = {
   createNotice,
   getNotices,
   deleteNotice,
-  updateNotice
+  updateNotice,
+
+
+  //chat
+  getChat,
+  createChat,
+  getChatt
 };

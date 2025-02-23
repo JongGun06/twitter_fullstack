@@ -20,8 +20,16 @@ const {
   createNotice,
   getNotices,
   deleteNotice, // Убедитесь, что контроллер использует асинхронную функцию
-  updateNotice
+  updateNotice,
+  getChat,
+  createChat,
+  getChatt
 } = require('../controllers/controller.x');
+
+//chat
+router.get('/chat', getChat);
+router.get('/chat/:idd', getChatt);
+router.post('/chat', upload.single('img'), createChat);
 
 // User Routes
 router.get('/users', getUser);

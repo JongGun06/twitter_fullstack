@@ -28,10 +28,6 @@ const ProfileOtherUsers = () => {
     let {data: userr2} = userApi.useGetUserQuery(userr?.googleId as unknown as string)
     let [updateUser] = userApi.useUpdateUserMutation()
 
-
-    if (isLoading) {
-        return <div className='center-content'>Загрузка...</div>; 
-    }
     function messageNav() {
         if(userr?.googleId && user.uid && message){
           let lastStorage = localStorage.getItem("lastChat");
@@ -40,6 +36,7 @@ const ProfileOtherUsers = () => {
               (m.sender === user.uid && m.receiver === userr?.googleId) ||
               (m.sender === userr?.googleId && m.receiver === user.uid)
           );
+          
           if (!chatExists) {
             createMessage({
               id: uniqueId,
@@ -48,16 +45,23 @@ const ProfileOtherUsers = () => {
               messages: [],
               createDate: formattedDate,
             });
+            console.log("createMessage: ",{
+              id: uniqueId,
+              sender: user.uid,
+              receiver: userr?.googleId,
+              messages: [],
+              createDate: formattedDate,
+            });
+            
             updateUser({
               ...userr1,
               messages: [...(userr1?.messages ?? []), { author: user.uid, messagesID: uniqueId }]
             });
-            
+
             updateUser({
               ...userr2,
               messages: [...(userr2?.messages ?? []), { author: userr.googleId, messagesID: uniqueId }]
             });
-            
           } else {
             navigate(`/message/${lastStorage}`)
           }
@@ -65,6 +69,11 @@ const ProfileOtherUsers = () => {
         }
       navigate(`/message/${userr?.googleId}`)
     }
+    if (isLoading && !user.uid || !user) {
+      return <div className='center-content'>Загрузка...</div>; 
+    }
+  console.log("user",user);
+  
     
     return (
         <div className='center-content'>
@@ -81,7 +90,7 @@ const ProfileOtherUsers = () => {
                 <div style={{borderRadius:"39%",background:"black"}}>
                     <img onClick={messageNav} style={{width:"1.3rem",borderRadius:"39%",border:"1px solid gray",padding:"5px",cursor:"pointer"}} src={messageicon} alt="" />
                 </div>
-                <button>Читать</button>
+                {user.uid === userr?.googleId ? null : <button>Читать</button>}
               </div>
             </div>
             <div className="profile-info">

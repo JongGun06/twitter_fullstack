@@ -16,7 +16,8 @@ export let messageApi = createApi({
             query:(id) => ({
                 url:`/api/twitter/messages/${id}`
             }),
-            providesTags:["Mess"]
+            providesTags:["Mess"],
+            
         }),
         createMessage: build.mutation<IMessage,IMessage>({
             query:(message) => ({
@@ -35,7 +36,7 @@ export let messageApi = createApi({
         }),
         updateMessage: build.mutation<IMessage,IMessage>({
             query:(message) => ({
-                url:`/api/twitter/messages${message._id}`,
+                url:`/api/twitter/messages${message.id}`,
                 method:"PUT",
                 body: message
             }),

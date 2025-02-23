@@ -1,0 +1,67 @@
+.sendmessage{
+    position: relative;
+    margin-left: 1rem;
+}
+.sendmessage label{
+    position: absolute;
+    top: 22%;
+    left: 2%;
+}
+
+.sendmessage img{
+    position: absolute;
+    top: 19%;
+    right: 1%;
+    opacity: 0.7;
+}
+
+.sendmessage input{
+    width: 22rem;
+    height: 1.5rem;
+    border: none;
+    background: rgb(32, 35, 39);
+    padding: 8px 8px 8px 40px;
+    border-radius: 10px;
+    color: white;
+}
+
+.aboutfriend {
+    text-align: center;
+    width: 27rem;
+}
+
+.aboutfriend p {
+    font-size: 12px;
+    color: #646262;
+}
+
+@media (min-width: 980px)  {
+    .dn_arrow {
+      display: none;
+    }
+  }
+
+  @media (max-width: 544px)  {
+    .aboutfriend {
+        width: 20rem;
+    }
+    .sendmessage input {
+        width: 15rem;
+    }
+  }
+  @media (max-width: 495px)  {
+    .aboutfriend {
+        width: 18rem;
+    }
+    .sendmessage input {
+        width: 13rem;
+    }
+  }
+
+  .first_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 10px;
+}

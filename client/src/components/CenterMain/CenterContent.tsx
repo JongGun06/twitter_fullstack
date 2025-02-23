@@ -19,6 +19,7 @@ const CenterContent: React.FC = () => {
     const selectedFile = e.target.files ? e.target.files[0] : null;
     if (selectedFile) {
       setFile(selectedFile);
+      
     } else {
       console.log("No file selected");
     }
@@ -46,7 +47,6 @@ const CenterContent: React.FC = () => {
     //@ts-ignore
     const formattedDate = currentDate.toLocaleDateString("ru-RU", options);
     formData.append("createDate", formattedDate);
-
     try {
       //@ts-ignore
       await createPost(formData).unwrap();

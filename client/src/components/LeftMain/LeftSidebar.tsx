@@ -22,18 +22,21 @@ const LeftSidebar: React.FC = () => {
   useEffect(() => {
     let lastChat = localStorage.getItem("lastChat");
     if (lastChat) {
-      setLastChatState(lastChat); // Устанавливаем сохранённый чат в state
+      setLastChatState(lastChat); 
+    }else {
+      setLastChatState('default')
     }
   }, []);
-  const menuItems = [
+  const menuItems = [ 
     { src: x_logo, link: "/", size: "2.3rem" },
     { name: "Главная", link: "/", src: home_icon },
     { name: "Обзор", link: "/search", src: search_icon },
     { name: "Уведомления", link: "/", src: notice_icon },
     { name: "Сообщения", link: `/message/${lastChatState}`, src: message_icon },
     { name: "Профиль", link: "/profile", src: profile_icon },
-    { name: "Заметки", link: "/", src: bookmark_icon },
+    { name: "Заметки", link: "/bookmark", src: bookmark_icon },
   ];
+  
 
 
 
@@ -107,6 +110,8 @@ const LeftSidebar: React.FC = () => {
       }
     };
   }, [navigate, setUser]);
+ 
+      
 
   function signout() {
     auth.signOut().then(() => {

@@ -1,4 +1,6 @@
 export interface messagess {
+    _id?:string
+    idd:string
     text: string
     author: string
     createDate: string
