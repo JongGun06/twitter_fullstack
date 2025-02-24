@@ -29,3 +29,10 @@ export interface IUser{
     posts?:LikesPost[]
     messages?: IMess[]
 }
+
+export interface Subscriptions {
+    _id?: string
+    user: string;
+    avatar: string;
+    name: string;
+  }

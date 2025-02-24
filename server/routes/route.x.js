@@ -10,6 +10,7 @@ const {
   updateUser,
   createPost,
   getPost,
+  getPostt,
   deletePost, // Убедитесь, что контроллер использует асинхронную функцию
   updatePost,
   sendMessage,
@@ -41,6 +42,7 @@ router.get('/users/:googleId', getUserr);
 
 // Post Routes
 router.get('/posts', getPost);
+router.get('/posts/:id', getPostt);
 router.post('/posts', upload.single('images'), createPost);
 router.delete('/posts/:id', deletePost); // Используется асинхронная функция для удаления
 router.put('/posts/:id', upload.single('images'), updatePost);

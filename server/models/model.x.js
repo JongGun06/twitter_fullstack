@@ -65,10 +65,8 @@ let postSchema = mongoose.Schema({
   likes: { type: Number, default: 0 },
   comments: [
     {
-      post_id: { type: String },
       text: { type: String },
       author: { type: String },
-      likes: { type: Number, default: 0 },
       createDate: { type: Date, default: Date.now },
     },
   ],
@@ -76,7 +74,7 @@ let postSchema = mongoose.Schema({
     {
       post_id: { type: String },
       author: { type: String },
-      createDate: { type: Date, default: Date.now },
+      createDate: { type: String },
     },
   ],
   bookmarks: [

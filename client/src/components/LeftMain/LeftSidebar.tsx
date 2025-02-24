@@ -31,7 +31,6 @@ const LeftSidebar: React.FC = () => {
     { src: x_logo, link: "/", size: "2.3rem" },
     { name: "Главная", link: "/", src: home_icon },
     { name: "Обзор", link: "/search", src: search_icon },
-    { name: "Уведомления", link: "/", src: notice_icon },
     { name: "Сообщения", link: `/message/${lastChatState}`, src: message_icon },
     { name: "Профиль", link: "/profile", src: profile_icon },
     { name: "Заметки", link: "/bookmark", src: bookmark_icon },

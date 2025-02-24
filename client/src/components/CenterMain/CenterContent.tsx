@@ -59,17 +59,7 @@ const CenterContent: React.FC = () => {
 
   return (
     <main className="center-content">
-      <div
-        className="for_you_block"
-        style={{ display: "flex", justifyContent: "space-around" }}
-      >
-        <button className="active tab" style={{ fontSize: "15px" }}>
-          Для вас
-        </button>
-        <button className="tab" style={{ fontSize: "15px" }}>
-          Вы читаете
-        </button>
-      </div>
+    
 
       <div className="container">
         {/* Поле ввода */}

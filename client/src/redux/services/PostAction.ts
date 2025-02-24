@@ -13,6 +13,12 @@ export let postApi = createApi({
       }),
       providesTags: ['Post'],
     }),
+    getPost: build.query({
+      query:(id) => ({
+        url: `/api/twitter/posts/${id}`
+      }),
+      providesTags:['Post']
+    }),
 
     // Создание нового поста
     createPost: build.mutation<IPost, IPost>({

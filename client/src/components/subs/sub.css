@@ -1,0 +1,16 @@
+.subscriptions button {
+  color: white;
+  font-weight: 500;
+  height: 2.2rem;
+  border-radius: 8px;
+  border: none;
+  background: #1d9bf0;
+  cursor: pointer;
+}
+.subscriptions {
+  align-items: center;
+}
+
+.subscriptions button:hover {
+  color: red;
+}

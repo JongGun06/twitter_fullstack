@@ -4,9 +4,11 @@ import { postApi } from '../services/PostAction';
 import { messageApi } from '../services/MessageAction';
 import messageSlice from '../reducer/MessageInfoReducer'; // Убедись, что здесь правильный путь
 import { chatApi } from '../services/ChatAction';
+import { activeReducer } from '../reducer/ActiveButtonProfile';
 
 const rootReducer = combineReducers({
-    messageSlice,  // Пример правильного подключения редьюсера
+    messageSlice,
+    activeSlice: activeReducer,  // Указываем активный редьюсер
     [userApi.reducerPath]: userApi.reducer,
     [postApi.reducerPath]: postApi.reducer,
     [messageApi.reducerPath]: messageApi.reducer,

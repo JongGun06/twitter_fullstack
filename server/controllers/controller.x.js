@@ -171,6 +171,16 @@ async function getPost(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+async function getPostt(req, res) {
+  try {
+    let {id} = req.params
+    const posts = await Post.findById(id);
+    res.status(200).json(posts);
+  } catch (error) {
+    
+    res.status(500).json({ error: error.message });
+  }
+}
 
 async function updatePost(req, res) {
   try {
@@ -388,6 +398,7 @@ module.exports = {
   getPost,
   deletePost,
   updatePost,
+  getPostt,
 
   // Message
   sendMessage,

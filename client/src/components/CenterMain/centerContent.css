@@ -59,11 +59,11 @@
 
   .profile-avatar-wrapper button {
     padding: 11px;
-    width: 90px;
     border-radius: 15px;
     border: none;
-    font-weight: 900;
+    font-weight: 500;
     cursor: pointer;
+    font-size: 13px;
   }
 
   
@@ -324,7 +324,6 @@
 .interaction div {
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 /* Применяем стили к img и span, когда наводят на div */
